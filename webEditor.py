@@ -1,6 +1,6 @@
 from flask import *
 
-app = Flask(__name__, template_folder="/home/voven4ek/IdeaProjects/voven4ek_web")
+app = Flask(__name__, template_folder="/home/voven4ek/voven4ek_web")
 
 
 @app.route('/')
