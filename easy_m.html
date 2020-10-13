@@ -72,12 +72,12 @@
 <div id="ggp1">
 
     <button class="pad_vodo" onclick="del_line()">Help</button>
-    <button class="pad_vodo" onclick="block2()">Настройки</button>
+    <button class="pad_vodo" onclick="block2()">Наст.</button>
     <button class="pad_vodo" onclick="block_hide()">Код</button>
     <button class="pad_vodo" onclick="help()">Под.</button>
     <button class="pad_vodo" onclick="editor.redo()">-></button>
     <button class="pad_vodo" onclick="editor.undo()"><-</button>
-    <input type="button" value="Посмотреть" class="pad_vodo" id="baton_hleba" onclick="cruto()">
+    <input type="button" value="Посмотр." class="pad_vodo" id="baton_hleba" onclick="cruto()">
 
 
     <br>
@@ -126,6 +126,52 @@
 <div id="nast" style="display: none;">
     <div class="set">
         <h1><a href="#" onclick="block2()">Настройки</a></h1>
+    </div>
+    <div class="set">
+        Выберите тег:<select onchange="Html_edit()" id="code_html">
+        <option>body</option>
+        <option selected>a</option>
+        <option>h1</option>
+        <option>h2</option>
+        <option>h3</option>
+        <option>h4</option>
+        <option>h5</option>
+        <option>h6</option>
+        <option>div</option>
+        <option>form</option>
+        <option>html</option>
+        <option>head</option>
+        <option>abbr</option>
+        <option>i</option>
+        <option>p</option>
+        <option>script</option>
+        <option>small</option>
+        <option>strong</option>
+        <option>style</option>
+        <option>title</option>
+        <option>ul</option>
+        <option>center</option>
+        <option>font</option>
+        </select>
+    </div>
+    <div class="set">
+        Цвет body:<input type="color" id="color" onchange="color_body()">
+    </div>
+    <div class="set">
+        Цвет:<input type="color" id="color2" onchange="chan()">(заменит '$$' на выбраный цвет)
+    </div>
+    <div class="set">
+        Цвет текста:<input type="color" id="color3" onchange="chan2()">(заменит '@@' на выбраный цвет)
+    </div>
+    <div class="set">
+        Цвет фона:<input type="color" id="color4" onchange="chan3()">(заменит ## на выбраный цвет)
+    </div>
+    <div class="set">
+        Цвет фона(gradient):<input type="color" id="color5" onchange="chan4()">(заменит %% на выбраный цвет)
+    </div>
+
+    <div class="set">
+        Цвет body(gradient):<input type="color" id="color6" onchange="chan5()">
     </div>
     <div class="set" id="theme">
         Тема: <select onchange="selectTheme()" id="select">
@@ -223,7 +269,6 @@
         matchBrackets: true
       });
         editor.setOption("theme", 'darcula');
-
         let size = '96%';
         if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         // код для мобильных устройств
@@ -236,6 +281,34 @@
       var yx=1;
       var hid=1;
       var hid1=1;
+      function chan(){
+      var color = document.getElementById('color2').value;
+      editor.setValue(editor.getValue().replace('$$', color))
+      }
+      function chan2(){
+      var color = document.getElementById('color3').value;
+      editor.setValue(editor.getValue().replace('@@', 'style="color:'+color+'"'))
+      }
+      function chan3(){
+      var color = document.getElementById('color4').value;
+      editor.setValue(editor.getValue().replace('##', 'style="background-color:'+color+'"'))
+      }
+      function chan4(){
+      var color = document.getElementById('color5').value;
+      editor.setValue(editor.getValue().replace('%%', 'style="background: linear-gradient(45deg, '+color+', #C5DDE8);"'))
+      }
+      function chan5() {
+        var color = document.getElementById('color6').value;
+        document.body.style = 'background: linear-gradient(45deg, '+color+', #C5DDE8);';
+        var mySubString = editor.getValue().substring(
+        editor.getValue().lastIndexOf('style="'),
+        editor.getValue().lastIndexOf(';"')
+        );
+        if(mySubString==''){
+        editor.setValue(editor.getValue().replace('<body>', '<body style="background: linear-gradient(45deg, '+color+', #C5DDE8);">'));
+        }else{
+        editor.setValue(editor.getValue().replace(mySubString, 'style="background: linear-gradient(45deg, '+color+', #C5DDE8)'));}
+      }
       function help(){
       CodeMirror.commands.autocomplete(editor);
       }
@@ -274,7 +347,7 @@
         else{
         yx = 1;
         editor.setSize('100%', size);
-        document.getElementById("baton_hleba").value = 'Посмотреть';
+        document.getElementById("baton_hleba").value = 'Посмотр.';
         document.getElementById("add_to_me").style = 'width: 0%;height: 0%;';}
         }
         function readFile(object) {
@@ -313,6 +386,22 @@
         var theme = input.options[input.selectedIndex].textContent;
         editor.setOption("theme", theme);
         location.hash = "#" + theme;
+      }
+      function Html_edit() {
+        var html_code = document.getElementById('code_html').options[document.getElementById('code_html').selectedIndex].textContent;
+        editor.setValue(editor.getValue()+'<'+html_code+'>\n'+'\n</'+html_code+'>\n');
+      }
+      function color_body() {
+        var color_b = document.getElementById('color').value;
+        document.body.style = 'background:'+color_b;
+        var mySubString = editor.getValue().substring(
+        editor.getValue().lastIndexOf('style="'),
+        editor.getValue().lastIndexOf(';"')
+        );
+        if(mySubString==''){
+        editor.setValue(editor.getValue().replace('<body>', '<body style="background-color:'+color_b+';">'));
+        }else{
+        editor.setValue(editor.getValue().replace(mySubString, 'style="background-color:'+color_b));}
       }
       var choice = (location.hash && location.hash.slice(1)) ||
                    (document.location.search &&
