@@ -87,28 +87,28 @@
     <a href="#" id="krest" class="pad_vodo" onclick="del_line1()"> Закрыть</a>
     <script src="https://yastatic.net/share2/share.js"></script>
     <div class="ya-share2" id="lla" data-curtain data-limit="3" data-services="vkontakte,telegram,whatsapp"></div>
-        <br>
+    <br>
     <font color="red"><h1>Voven4ek redactor HTML</h1></font>
-        Это новый HTML редактор!
-        <br>
-        <h3>Функции кнопок:</h3>
+    Это новый HTML редактор!
+    <br>
+    <h3>Функции кнопок:</h3>
     <i>Скачать</i>-эта кнопка дает на скачку файл с вашим кодом.
-        <br>
+    <br>
     <br>
     <i>Выберите файл</i>-дает загрузить файл с кодом на сайт.
-        <br>
+    <br>
     <br>
     <i>Прочитать</i>-читает загруженный файл.
-        <br>
+    <br>
     <br>
     <i>'->'и'<-'</i>-используйте эти кнопки вместо Ctrl+Shift+z, Ctrl+z.
-        <br>
+    <br>
     <br>
     <i>Посмотреть</i>-используйте что бы смотреть написаный вами код.
-        <br>
+    <br>
     <br>
     <i>Очистить</i>-удаляет весь код из поля.
-        <br>
+    <br>
     <br>
     <i>HTML</i>-добовляет основные теги HTML.
 </div>
@@ -152,7 +152,7 @@
         <option>ul</option>
         <option>center</option>
         <option>font</option>
-        </select>
+    </select>
     </div>
     <div class="set">
         Цвет body:<input type="color" id="color" onchange="color_body()">
@@ -172,6 +172,12 @@
 
     <div class="set">
         Цвет body(gradient):<input type="color" id="color6" onchange="chan5()">
+    </div>
+    <div class="set">
+        Фон (img):<input type="url" id="img1"><input type="button" onclick="chan6()" value='do it'>(заменит && на выбраный цвет)
+    </div>
+    <div class="set">
+        Фон body(img):<input type="url" id="img2"><input type="button" onclick="chan7()" value='do it'>
     </div>
     <div class="set" id="theme">
         Тема: <select onchange="selectTheme()" id="select">
@@ -308,6 +314,24 @@
         editor.setValue(editor.getValue().replace('<body>', '<body style="background: linear-gradient(45deg, '+color+', #C5DDE8);">'));
         }else{
         editor.setValue(editor.getValue().replace(mySubString, 'style="background: linear-gradient(45deg, '+color+', #C5DDE8)'));}
+      }
+      function chan6(){
+      var img = document.getElementById('img1').value;
+      editor.setValue(editor.getValue().replace('&&', 'style="background-image: url(\''+img+'\');"'))
+      document.getElementById('img1').value = '';
+      }
+      function chan7() {
+        var img = document.getElementById('img2').value;
+        document.body.style = "background-image: url('"+img+"');";
+        var mySubString = editor.getValue().substring(
+        editor.getValue().lastIndexOf('style="'),
+        editor.getValue().lastIndexOf(';"')
+        );
+        if(mySubString==''){
+        editor.setValue(editor.getValue().replace('<body>', '<body style="background-image: url(\''+img+'\');">'));
+        }else{
+        editor.setValue(editor.getValue().replace(mySubString, 'style="background-image: url(\''+img+'\')'));}
+        document.getElementById('img2').value = '';
       }
       function help(){
       CodeMirror.commands.autocomplete(editor);
