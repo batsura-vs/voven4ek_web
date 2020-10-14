@@ -301,14 +301,14 @@
       }
       function chan4(){
       var color = document.getElementById('color5').value;
-      editor.setValue(editor.getValue().replace('%%', 'style="background: linear-gradient(45deg, '+color+', #C5DDE8);"'))
+      editor.setValue(editor.getValue().replace('%%', 'style="background: linear-gradient(45deg, '+color+', #C5DDE8)"'))
       }
       function chan5() {
         var color = document.getElementById('color6').value;
         document.body.style = 'background: linear-gradient(45deg, '+color+', #C5DDE8);';
         var mySubString = editor.getValue().substring(
-        editor.getValue().lastIndexOf('style="'),
-        editor.getValue().lastIndexOf(';"')
+        editor.getValue().lastIndexOf('style="background: linear-gradient(45deg,'),
+        editor.getValue().lastIndexOf(');"')
         );
         if(mySubString==''){
         editor.setValue(editor.getValue().replace('<body>', '<body style="background: linear-gradient(45deg, '+color+', #C5DDE8);">'));
@@ -317,20 +317,20 @@
       }
       function chan6(){
       var img = document.getElementById('img1').value;
-      editor.setValue(editor.getValue().replace('&&', 'style="background-image: url(\''+img+'\');"'))
+      editor.setValue(editor.getValue().replace('&&', 'style="background-image: url(\''+img+'\')"'))
       document.getElementById('img1').value = '';
       }
       function chan7() {
         var img = document.getElementById('img2').value;
         document.body.style = "background-image: url('"+img+"');";
         var mySubString = editor.getValue().substring(
-        editor.getValue().lastIndexOf('style="'),
-        editor.getValue().lastIndexOf(';"')
+        editor.getValue().lastIndexOf('body style="background-image: url('),
+        editor.getValue().lastIndexOf(');"')
         );
         if(mySubString==''){
         editor.setValue(editor.getValue().replace('<body>', '<body style="background-image: url(\''+img+'\');">'));
         }else{
-        editor.setValue(editor.getValue().replace(mySubString, 'style="background-image: url(\''+img+'\')'));}
+        editor.setValue(editor.getValue().replace(mySubString, 'body style="background-image: url(\''+img+'\''));}
         document.getElementById('img2').value = '';
       }
       function help(){
