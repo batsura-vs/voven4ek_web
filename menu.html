@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Квест</title>
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+<div id="1">
+    <video width="400" height="300" controls="controls">
+        <source src="static/dog.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2""'>
+    </video>
+</div>
+<body onload="load()">
+<div id="start">
+<center><h1>Добро пожаловать на тест</h1>
+    Суть игры по отрывкам фильмов угадать его название
+    <br>
+    <br>
+    <button id="start_button">Нажмите чтобы начать!</button></center>
+</div>
+<div id="dask">
+<h3 id="score"></h3>
+<h3 id="ready"></h3>
+</div>
+<script>
+    var all = 5;
+    var score = 0;
+    var ready = 0;
+    function load(){
+    document.getElementById('ready').innerHTML = 'Тест: '+ ready + ' из '+all;
+    document.getElementById('score').innerHTML = 'Счёт: '+ score + ' из '+all;
+    setInterval(rainbow, 500);
+    }
+    var colors = ['red','green','blue'];
+    var c = 0;
+    function rainbow(){
+    if(c <= colors.length-1){
+    c++;
+    console.log(1);
+    }else{c=0}
+    document.getElementById('start_button').style='background:'+colors[c];
+    }
+</script>
+<style>
+    #start_button:hover{
+    transform: scale(1.5);
+    transition: 0.5s;
+    }
+    #start_button{
+    background-color: green;
+    color: white;
+    transition: 0.5s;
+    }
+    #dask{
+    border-radius: 5%;
+    position: fixed;
+    right: 0%;
+    top: 0%;
+    background: linear-gradient(45deg, #d60f0f, #C5DDE8);
+    padding: 3%;
+    }
+    body{
+    background: linear-gradient(90deg, blue, #C5DDE8);
+    }
+</style>
+</body>
+</html>

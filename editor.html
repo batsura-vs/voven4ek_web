@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebEditor</title>
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+<p>
+<div id="text" contenteditable="true">
+<center>
+<h1>Цвета:</h1>
+    <font color="green">green</font><br><font color="orange">orange</font><br><font color="purple">purple</font><br><font color="blue">blue</font><br><font color="yellow">yellow</font><br><font color="pink">pink</font><br><font color="red">red</font>
+    <br>Использовать так: [red|текст]<br>Чтобы посмотреть нажмите любую клавишу
+</center>
+</div>
+<ul id="menu">
+    <li><a href="#">hello</a></li>
+    <li><a href="#">hello</a>
+    <ul>
+    <li><a href="#">hello</a></li>
+    <li><a href="#">hello</a></li>
+    <li><a href="#">hello</a></li>
+    </ul>
+    </li>
+    <li><a href="#">hello</a></li>
+    <li><a href="#">hello</a></li>
+</ul>
+<style>
+    #menu ul{
+        display: none;
+        background-color: #f90;
+        position: absolute;
+        top: 100%;
+        left: 0%;
+        margin: 0;
+        padding: 0;
+    }
+  #menu {
+    width:99%;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    padding-top: 0px;
+    padding-left: 0px;
+  }
+    #menu li {
+        float: left;
+        position: relative;
+        background-color: #f90;
+        list-style-type: none;
+            padding-left:10%;
+            padding-right:10%;
+        border: double 1px black;
+    }
+    #menu li:hover ul{display: block}
+    #menu li ul li{
+    padding-left:0%;
+    padding-right:0%;
+    width:100%;
+    }
+    #menu li ul{
+    display: none;
+    background-color: green;
+    padding-left:0%;
+    padding-right:0%;
+    position: absolute;
+    left: 0%;
+    width: 100%;
+    }
+    #menu li a{
+        display: block;
+        padding: 3%;
+        color: #fff;
+        text-decoration: none;
+        text-align: center;
+    }
+</style>
+<script>
+    var HTML = '';
+    document.getElementById("text").addEventListener("input", function() {
+    var text = document.getElementById('text').innerHTML;
+
+
+    var x = text.lastIndexOf("(cen){");
+    var y = text.lastIndexOf("}");
+    if(x >= 0 && y > 0){
+    var string_1 = text.substring(
+    text.lastIndexOf('(cen){')+1,
+    text.lastIndexOf('}')
+    );
+    text = text.replace("(cen){", "<center>").replace("}", "</center> &shy;").replace('|','');
+    document.getElementById('text').innerHTML = text;
+    }
+
+
+    var x = text.lastIndexOf("(bg){");
+    var y = text.lastIndexOf("}");
+    var z = text.lastIndexOf("|");
+    if(x >= 0 && y > 0 && z > 0){
+    var string_1 = text.substring(
+    text.lastIndexOf('(bg){')+5,
+    text.lastIndexOf('|')
+    );
+    console.log(string_1);
+    text = text.replace("(bg){"+string_1, `<p style='background-color:`+string_1+`'>`).replace("}", "</p> &shy;").replace('|','');
+    document.getElementById('text').innerHTML = text;
+    }
+
+
+    var x = text.lastIndexOf("(i){");
+    var y = text.lastIndexOf("}");
+    if(x >= 0 && y > 0){
+    var string_1 = text.substring(
+    text.lastIndexOf('(cen){')+1,
+    text.lastIndexOf('}')
+    );
+    text = text.replace("(i){", "<i>").replace("}", "</i> &shy;").replace('|','');
+    document.getElementById('text').innerHTML = text;
+    }
+
+    var x = text.lastIndexOf("[");
+    var y = text.lastIndexOf("]");
+    var z = text.lastIndexOf("|");
+    if(x >= 0 && y > 0 && z > 0){
+    var string_1 = text.substring(
+    text.lastIndexOf('[')+1,
+    text.lastIndexOf('|')
+    );
+    text = text.replace("["+string_1, "<font color='"+string_1+"'>").replace("]", "</font>	&shy;").replace('|','');
+    document.getElementById('text').innerHTML = text;
+    }else{var string_1 = 'no string';}
+
+
+    var x = text.lastIndexOf("{");
+    var y = text.lastIndexOf("}");
+    var z = text.lastIndexOf("|");
+    if(x >= 0 && y > 0 && z > 0){
+    var string_1 = text.substring(
+    text.lastIndexOf('{')+1,
+    text.lastIndexOf('|')
+    );
+    text = text.replace("{"+string_1, "<h"+string_1+">").replace("}", "</h"+string_1+">	&shy;").replace('|','');
+    document.getElementById('text').innerHTML = text;
+    }
+
+    HTML = text.replace("[green", "<font color=\"green\"");
+    console.log(string_1);
+    }, false);
+</script>
+</body>
+</html>

