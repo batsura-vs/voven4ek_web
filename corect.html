@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Верно</title>
+</head>
+<body>
+<center>
+    <h1 id="Hello">
+        Поздравляем! Вы правильно решили тест №<font color="green" id="num">{{col}}</font><br><br>
+        <a id="f" href=""><button id="ff">Далее</button></a>
+    </h1>
+</center>
+<script>
+    var a = document.getElementById('num').innerHTML;
+    if(a!='{{fil}}'){
+    document.getElementById('f').href = '{{site}}test/'+(Number(a)+1);}else{
+    document.getElementById('f').href = '{{site}}go';}
+</script>
+<style>
+    button{font-size:100%;background-color:green;color:white}
+    body{
+    background: linear-gradient(90deg, purple, yellow);
+    }
+    #Hello{
+    padding-top: 15%;
+    }
+</style>
+</body>
+</html>

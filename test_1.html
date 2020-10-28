@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test{{ready}}</title>
+</head>
+<body>
+<div id="1">
+    <center>
+    <video id="vid" width="80%" height="80%" controls="controls" poster="{{site}}static/prev.jpg">
+        <source src="{{site}}static/{{number}}.webm" type='video/webm; codecs="vp8, vorbis"'>
+    </video>
+        <div id="anwers" style="display:none">
+    <form action="check/{{ch}}" method="post">
+    <h1>Что это за кино?</h1>
+    <select name="answer" id="lis">
+        <option selected>Ответ</option>
+    </select>
+            <button type="submit">Проверить</button>
+    </form>
+    <h1>Добавить вариант ответа?</h1>
+    <input type="text" id="more" size="8" placeholder="Ваш вариант."><button onclick="add()">Добавить</button>
+        </div>
+    </center>
+</div>
+<script type='text/javascript'>
+function add(){
+var x = document.getElementById('more').value;
+if(x!=''){
+var y = document.getElementById('lis').innerHTML;
+document.getElementById('lis').innerHTML=y+'<option>'+x+'</option>';
+document.getElementById('more').value = '';}
+}
+    document.getElementById('vid').addEventListener('ended',myHandler,false);
+    function myHandler(e) {
+        var an = `{{options}}`.replaceAll('#', '<').replaceAll('@', '>');
+        document.getElementById('lis').innerHTML = an;
+        document.getElementById('vid').style = 'transition: 1.5s;width:60%;height:60%;';
+        document.getElementById('anwers').style.display = 'block';
+    }
+</script>
+<div id="dask">
+<h3 id="ready">Тест: {{ready}} из {{test}}</h3>
+</div>
+<style>
+    #dask{
+    transition: 1s;
+    border-radius: 5%;
+    position: fixed;
+    right: 0%;
+    bottom: 0%;
+    background: linear-gradient(45deg, #d60f0f, #C5DDE8);
+    padding: 2%;
+    }
+    select, button, input{
+    font-size: 150%;
+    }
+    h1{color:white}
+    body{
+    background: linear-gradient(90deg, blue, green);
+    }
+</style>
+</body>
+</html>

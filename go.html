@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Готово</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Верно</title>
+</head>
+<body>
+<center>
+    <h1 id="Hello">
+        Поздравляем! Вы решили тест по фильмам на <font color="green" id="num">{{col}}</font><font color="green"> балл(ов) из <strong id="dd">{{all}}</strong>!</font>
+    </h1>
+    <h2>Тест решён на: <strong id="proc"></strong>%</h2>
+</center>
+<script>
+    var y = document.getElementById('dd').innerHTML;
+    var x = document.getElementById('num').innerHTML;
+    document.getElementById('proc').innerHTML = 100 / Number(y) * Number(x);
+</script>
+<style>
+    button{font-size:100%;background-color:green;color:white}
+    body{
+    background: linear-gradient(90deg, purple, yellow);
+    }
+    #Hello{
+    padding-top: 15%;
+    color: black;
+    }
+</style>
+</body>
+</html>
+</body>
+</html>

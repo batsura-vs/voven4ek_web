@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Верно</title>
+</head>
+<body>
+<center>
+    <h1 id="Hello">
+        <font color="red">Ошибка!</font> Вы не правильно решили тест №<font color="green" id="num">{{col}}</font><br>
+        Правильный ответ был: <font color="green"><u>{{ans}}</u></font><br>
+        <a id="f" href=""><button id="ff">Далее</button></a>
+    </h1>
+</center>
+<script>
+    var a = document.getElementById('num').innerHTML;
+    if(a!='{{fil}}'){
+    document.getElementById('f').href = '{{site}}/test/'+(Number(a)+1);}else{
+    document.getElementById('ff').innerHtml = 'Закончить';
+    document.getElementById('f').href = '{{site}}go';}
+</script>
+<style>
+    button{font-size:100%;background-color:green;color:white}
+    body{
+    background: linear-gradient(90deg, gray, pink);
+    }
+    #Hello{
+    padding-top: 15%;
+    }
+</style>
+</body>
+</html>
