@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Looking</title>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+</head>
+<body>
+<canvas id="can" style="border: solid 2px black"></canvas>
+<h1>Looking: <font color="red" id="streamer"></font> stream!</h1>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+      var idv = prompt('Введите Id Трансляции к которой вы хотите подключится!');
+      var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port);
+      socket.emit('help', { 'id_t': idv});
+      // Подключиться к веб-сокету
+
+      // При подключении настройте кнопки
+      socket.on('connect', () => {
+        socket.on('get'+idv, data => {
+        var canvas = document.getElementById('can');
+        var ctx = canvas.getContext('2d');
+        var image = new Image();
+        image.onload = function() {
+          canvas.width = image.width;
+          canvas.height = image.height;
+          ctx.drawImage(image, 0, 0, image.width, image.height);
+        };
+        image.src = data.png;
+        document.getElementById('streamer').innerText = data.name + '`s';
+        });
+      });
+  });
+</script>
+</body>
+</html>
