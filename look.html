@@ -2,19 +2,66 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Looking</title>
+  <title>Watching</title>
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
 </head>
 <body>
 <canvas id="can" style="border: solid 2px black"></canvas>
-<h1>Looking: <font color="red" id="streamer"></font> stream!</h1>
+<h1>Watching: <font color="red" id="streamer"></font> stream!</h1>
+<div id="messenger">
+<div id="chat">
+  <h1><center style="border: solid 2px green;"><a href="#" onclick="hide();">Chat</a></center></h1>
+<div id='m' style='overflow: auto;'></div>
+  <br>
+<div id="mESS">
+<input type='text' id='message' size="12" placeholder="send your message...">
+<input type="submit" value="send" onclick="send()">
+</div>
+</div>
+</div>
+<style>
+  #messenger{
+  position:fixed;
+  bottom: 0%;
+  right: 0%;
+  width: 15%;
+  height: 40%;
+  }
+  #chat{
+  border: solid 2px green;
+  position:fixed;
+  bottom: 0%;
+  right: 0%;
+  width: 15%;
+  height: 35%;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #B3E4AA;
+  }
+  #m{
+  border: solid 2px green;
+  width: 100%;
+  height: 80%;
+  background-color: #B3E4AF;
+  }
+  #mESS{
+  border: solid 2px green;
+  position:fixed;
+  bottom: 0%;
+  right: 0%;
+  background-color: #B3E4AA;
+  }
+</style>
 <script>
+var name;
+var idv;
+var hide_c = 0;
   document.addEventListener('DOMContentLoaded', () => {
-      var idv = prompt('Введите Id Трансляции к которой вы хотите подключится!');
+      idv = prompt('Введите Id Трансляции к которой вы хотите подключится!');
+      name = prompt('Введите своё имя:')
       var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port);
       socket.emit('help', { 'id_t': idv});
       // Подключиться к веб-сокету
-
       // При подключении настройте кнопки
       socket.on('connect', () => {
         socket.on('get'+idv, data => {
@@ -29,8 +76,31 @@
         image.src = data.png;
         document.getElementById('streamer').innerText = data.name + '`s';
         });
+
+      socket.on('message'+idv, data => {
+      document.querySelector('#m').innerHTML += data.message;
+    })
       });
-  });
+  });;
+  function send(){
+  var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port);
+  const message = document.getElementById('message').value;
+  document.getElementById('message').value = '';
+  socket.emit('chat', {'message': message, 'name': name, 'id_t': idv});
+  }
+  function hide(){
+  if (hide_c === 0){
+  hide_c = 1;
+  document.getElementById('mESS').style.display = 'none';
+  document.getElementById('m').style.display = 'none';
+  document.getElementById('chat').style.height = '5%';
+  } else {
+  hide_c = 0;
+  document.getElementById('mESS').style.display = 'block';
+  document.getElementById('m').style.display = 'block';
+  document.getElementById('chat').style.height = '35%';
+  }
+  }
 </script>
 </body>
 </html>

@@ -32,16 +32,17 @@ def send(data):
 
 
 @socket.on("chat")
-def vote(data):
+def chat(data):
     data['message'] = f'''
-    <div  style='background-color: 23D9BE; padding: 15px; border-radius: 10px; color: white; width;'>
-    <h2 style='background-color: green; padding: 15px; border-radius: 10px; color: white;'>
+    <div style='background-color: #38C9A3; padding: 15px; border-radius: 10px; color: white;'>
+    <h3 style='background-color: green; padding: 15px; border-radius: 10px; color: white;'>
     {data['name']} writing:
-    <h3>
-    {data['message']}
     </h3>
+    <h4>
+    {data['message']}
+    </h4>
     </div>
-    </h1>
+    <br>
     <br>
     <br>
     '''
