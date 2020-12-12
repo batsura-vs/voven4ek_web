@@ -1,8 +1,7 @@
 from __future__ import unicode_literals
 
 import os
-from functools import partial
-from threading import Thread, Timer
+from threading import Thread
 from time import sleep
 from tkinter import *
 from tkinter import messagebox
@@ -20,9 +19,6 @@ class PlayNow:
 
 
 play_now = PlayNow
-os.system('pulseaudio --kill')
-os.system('jack_control  start')
-sleep(2)
 pygame.mixer.init()
 if not os.path.exists('.name.txt'):
     with open('.name.txt', 'w') as f:
@@ -38,6 +34,18 @@ play_now.music_list = files
 
 def grab1():
     Thread(target=grab2).start()
+
+
+def repi():
+    while pygame.mixer.get_busy():
+        sleep(0.03)
+    lbl_value1.configure(text='chose your song: ', bg='yellow')
+
+
+def cl():
+    os.system('pulseaudio --kill')
+    os.system('jack_control  start')
+    sleep(2)
 
 
 def grab2():
@@ -105,6 +113,7 @@ def play1():
         music.play()
         play_now.music_now = music
         play_now.index_music_now = play_now.music_list.index(combo.get())
+        Thread(target=repi).start()
     except:
         messagebox.showerror('Music Error', 'Invalid music format(only wav)')
 
@@ -123,7 +132,7 @@ def apply():
 def remove_m():
     ans = messagebox.askquestion('Remove', 'Are you sure want to remove song?')
     if ans == 'yes':
-        os.remove(play_now.directory_music +'/'+ combo.get())
+        os.remove(play_now.directory_music + '/' + combo.get())
         files = os.listdir(play_now.directory_music)
         play_now.music_list = files
         combo['values'] = files
@@ -139,7 +148,6 @@ def repeating1():
         sleep(2)
         if not pygame.mixer.get_busy() and play_now.timer is True:
             next_s()
-
 
 
 def repeat():
@@ -237,6 +245,8 @@ repeating = Label(master=content, text="repeating: False", font=("Arial Bold", 1
 repeating.grid(row=4, column=0)
 rep = Button(content, text="Repeat", command=repeat)
 rep.grid(column=1, row=4)
+dd = Button(content, text="Clear audio channel", command=cl)
+dd.grid(column=1, row=5)
 content2 = Frame()
 frame1 = Frame(content2, borderwidth=5, relief="ridge", width=600, height=50, bg='green')
 frame1.grid(column=0, row=0, columnspan=20, rowspan=10)
@@ -256,3 +266,4 @@ play_m = Button(content2, text="Download", command=grab1)
 play_m.grid(column=6, row=1)
 window.mainloop()
 play_now.timer = False
+os.abort()
