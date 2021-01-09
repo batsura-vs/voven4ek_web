@@ -18,3 +18,4 @@ while command != ['Exit']:
             except FileNotFoundError:
                 print(f'Ошибка команды "{com[0]}" не существует!')
             print('\n=============================================\n\n')
+
