@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Files</title>
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+<body id="body" onload="load()">
+<div id="all">
+    <div id="top_bar">
+        <p>
+            <img class="button" onclick="back()" id="back" height="3%" width="3%" src="/static/images/back.png"
+                 alt="back"
+                 title="go back">
+            <img class="button" onclick="cr_f()" id="new_fol" height="3%" width="3%" src="/static/images/add_folder.png"
+                 alt="ch_f"
+                 title="creat folder">
+            <form method="post" action="" enctype="multipart/data">
+                <label for="ava"><img src="http://zarablegko.ru/wp-content/uploads/2011/07/avatarki.jpg"
+                                      width="100"/></label>
+                <input type="file" id="ava" name="file"/>
+            </form>
+        <div id="text_files">
+            Your files:
+            <div id="path"></div>
+        </div>
+        </p>
+    </div>
+    <div id="files" style="overflow: auto; width: auto; border: solid black medium">
+
+    </div>
+</div>
+<link href="/static/files_site.css" rel="stylesheet">
+<script src="/static/files_site.js"></script>
+</body>
+</html>

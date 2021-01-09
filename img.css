@@ -1,0 +1,81 @@
+@keyframes on_hover_b {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+#buttons {
+  border: solid rgba(14, 4, 198, 0.99) medium;
+  height: max-content;
+  width: max-content;
+  font-size: large;
+  background: linear-gradient(rgba(48, 198, 51, 0.99), rgb(166, 198, 164));
+}
+
+#buttons:hover #col {
+  width: 100%;
+}
+
+#col {
+  transition: 2s;
+  background: linear-gradient(rgba(7, 251, 221, 0.99), rgb(0, 144, 255));
+  width: 0;
+  height: 100%;
+  z-index: 2;
+}
+
+#size {
+  background: linear-gradient(rgba(48, 198, 51, 0.99), rgb(166, 198, 164));
+  font-size: large;
+}
+
+.pal {
+  display: inline-block;
+  padding: 1%;
+  cursor: pointer;
+  border: solid medium #ffffff;
+  position: relative;
+
+}
+
+.pal:hover {
+  border: solid rgba(255, 181, 41, 0.99) medium;
+  z-index: 2;
+}
+
+.pal:active {
+  border: none;
+}
+
+#setting {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  border: solid medium #aaa;
+  cursor: default;
+  overflow: auto;
+  background-color: white;
+  width: max-content;
+  height: 90%;
+}
+
+#palitra {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+  background-color: white;
+  width: 30%;
+  height: 90%;
+}
+
+#helper {
+  border: solid medium black;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: white;
+}
